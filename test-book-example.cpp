@@ -20,5 +20,7 @@ int main()
         window.display();
     }
 
+    /// COMMENTS
+
     return 0;
 }

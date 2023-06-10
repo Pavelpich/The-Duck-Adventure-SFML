@@ -1,2 +1,2 @@
 ﻿  test-book-example.cpp
-  The-Duck-Adventure-SFML.vcxproj -> D:\Projects\The-Duck-Adventure-SFML\x64\Debug\The-Duck-Adventure-SFML.exe
+C:\Users\David\source\repos\The-Duck-Adventure-SFML\test-book-example.cpp(1,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
