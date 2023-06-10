@@ -5,3 +5,16 @@ ipch/
 *.opensdf
 *.sdf
 *.cachefile
+x64/Debug/test-book-example.obj
+x64/Debug/The-Duck-Adventure-SFML.exe
+x64/Debug/The-Duck-Adventure-SFML.ilk
+x64/Debug/The-Duck-Adventure-SFML.log
+x64/Debug/The-Duck-Adventure-SFML.pdb
+x64/Debug/vc143.idb
+x64/Debug/vc143.pdb
+x64/Debug/The-Duck.3777d8a4.tlog/link.read.1.tlog
+x64/Debug/The-Duck.3777d8a4.tlog/The-Duck-Adventure-SFML.lastbuildstate
+.vs/The-Duck-Adventure-SFML/v17/Browse.VC.db
+.vs/The-Duck-Adventure-SFML/v17/.suo
+.vs/The-Duck-Adventure-SFML/FileContentIndex/df1b45a0-8147-4d60-b41b-cabd9eb21f96.vsidx
+.vs/The-Duck-Adventure-SFML/FileContentIndex/a9178a86-ba2c-4b8b-b20a-5ecf48c8d03d.vsidx
