@@ -15,8 +15,31 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="test-book-example.cpp">
+    <ClCompile Include="duck.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="platform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="duck.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="static.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="obstacles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="collectibles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

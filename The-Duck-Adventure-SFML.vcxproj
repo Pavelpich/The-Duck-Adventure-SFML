@@ -131,7 +131,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="test-book-example.cpp" />
+    <ClCompile Include="duck.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="platform.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="collectibles.h" />
+    <ClInclude Include="duck.h" />
+    <ClInclude Include="obstacles.h" />
+    <ClInclude Include="platform.h" />
+    <ClInclude Include="static.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
