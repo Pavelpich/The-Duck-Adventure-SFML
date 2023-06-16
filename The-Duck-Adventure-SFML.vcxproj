@@ -134,6 +134,7 @@
     <ClCompile Include="duck.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="platform.cpp" />
+    <ClCompile Include="static.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="collectibles.h" />

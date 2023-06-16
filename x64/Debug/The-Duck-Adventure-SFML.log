@@ -1,27 +1,12 @@
-﻿  duck.cpp
-D:\Projects\The-Duck-Adventure-SFML\duck.cpp(34,56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Projects\The-Duck-Adventure-SFML\duck.cpp(34,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Projects\The-Duck-Adventure-SFML\duck.cpp(73,22): warning C4305: '+=': truncation from 'double' to 'T'
+﻿  main.cpp
+D:\Projects\The-Duck-Adventure-SFML\main.cpp(15,38): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
           with
           [
               T=float
           ]
-D:\Projects\The-Duck-Adventure-SFML\duck.cpp(82,22): warning C4305: '-=': truncation from 'double' to 'T'
+D:\Projects\The-Duck-Adventure-SFML\main.cpp(15,26): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
           with
           [
               T=float
           ]
-  main.cpp
-D:\Projects\The-Duck-Adventure-SFML\main.cpp(12,38): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\Projects\The-Duck-Adventure-SFML\main.cpp(12,26): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
-          with
-          [
-              T=float
-          ]
-  platform.cpp
-  Generating Code...
   The-Duck-Adventure-SFML.vcxproj -> D:\Projects\The-Duck-Adventure-SFML\x64\Debug\The-Duck-Adventure-SFML.exe
