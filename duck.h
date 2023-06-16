@@ -48,4 +48,9 @@ public:
 	void setPositionX(float x);
 	void setPositionY(float y);
 
+	bool jumps_on(sf::Sprite platform);
+	void standOnPlatform(sf::Sprite platform);
+
+	bool hitsHeadWith(sf::Sprite platform);
+	void fallDown();
 };

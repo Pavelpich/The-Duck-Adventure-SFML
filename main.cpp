@@ -1,11 +1,14 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "duck.h"
-#include "platform.cpp"
-#include <vector>
+#include "platform.h"
 
 using namespace sf;
 
+/// ADD BACKGROUND !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// goose is done 
+// now you should make jumping on platform.
 
 // Render window
 sf::Vector2f viewSize(1600, 900);
@@ -13,53 +16,70 @@ sf::VideoMode vm(viewSize.x, viewSize.y);
 RenderWindow window(vm, "Jumping Duck", sf::Style::Default);
 
 
+sf::Vector2f playerPosition;
 
-Vector2f playerPosition;
+// Create a rectangle shape
 
 
-// Checks goose moving status.
+
+// Check Goose moving status
 
 bool playerMoving = false;
 bool inverse = false;
-
 
 
 float currentTime;
 float prevTime = 0.0f;
 
 
-// Initialize Classes (maybe in other place?)
+/// To add in class make them private or so and with init function iniliaze ));
 
-Hero duck;
-Platform rect;
-Platform rectT;
+Hero goose;   /// GOOSE SIZE 80x80
 
+Platform platform;
+Platform platform2;
+Platform platform3;
+Platform platform4;
+Platform platform5;
 
-
-
+std::vector<Platform> platforms;
 
 // MINIMAL POSITION TO JUMP ON.
 
-float min_y = 900 - 40; // 900 - Max Height ; 40 - height of duck/2.
-
+// 900 - Max Height ; 40 - height of goose / 2.
 
 // If you want on exact coordinate declare with minus
-// FOR DUCK -40 because origin is at centre
-// FOR PLATFORM -height because origin is at 0,0;
 
 
-// Function To fully initialize
+
+
+
 void init()
 {
-	duck.init("Assets/fanim.png", 6, 0.75f, sf::Vector2f(40, 900-40), 200);
+	goose.init("Assets/fanim.png", 6, 0.75f, sf::Vector2f(0 + 40, 900 - 40), 200);
 	srand((int)time(0));
 
-	rect.init(sf::Vector2f(600, 750-50), sf::Vector2f(200, 50));
-	rectT.init(sf::Vector2f(900, 650 - 50), sf::Vector2f(200, 50));
+	platform.Init("Assets/platform.png", sf::Vector2f(100, 900 - 150 - 16), sf::Vector2f(1, 2));
+
+	platform2.Init("Assets/platform.png", sf::Vector2f(300, 900 - 150 - 26), sf::Vector2f(1,2));
+
+	platform3.Init("Assets/platform.png", sf::Vector2f(500, 900 - 150 - 26), sf::Vector2f(1, 2));
+
+	platform4.Init("Assets/platform.png", sf::Vector2f(600, 900 - 150 - 26), sf::Vector2f(1, 2));
+
+	platform5.Init("Assets/platform.png", sf::Vector2f(800, 900 - 150 - 26), sf::Vector2f(1, 2));
+
+	platforms.push_back(platform);
+	platforms.push_back(platform2);
+	platforms.push_back(platform3);
+	platforms.push_back(platform4);
+	platforms.push_back(platform5);
+
 }
 
 
-// Control flow
+// jump 600.0f
+// Control flow (Key Press Handling)
 void updateInput()
 {
 	Event event;
@@ -108,7 +128,7 @@ void updateInput()
 
 		if (event.key.code == sf::Keyboard::Up)
 		{
-			duck.jump(750.0f);
+			goose.jump(700.0f);
 		}
 
 		if (event.key.code == sf::Keyboard::Escape || event.type == sf::Event::Closed)
@@ -120,63 +140,78 @@ void updateInput()
 
 
 // Update Duck position (move and jump)
-void update(float dt, bool playerMoving, bool inverse, float min_y) { duck.update(dt, playerMoving, inverse, min_y);  }
+void update(float dt, bool playerMoving, bool inverse, float min_y) { goose.update(dt, playerMoving, inverse, min_y); }
 
 
-// Object Draw.
-void draw() { window.draw(duck.getSprite()); window.draw(rect.shape()); window.draw(rectT.shape()); }
 
+void draw() {
+	window.draw(goose.getSprite());
 
-// Window Background draw + Object draw.
+	for (int i = 0; i < platforms.size(); i++)
+	{
+		window.draw(platforms[i].getSprite());
+	}
+}
+
 void drawFull()
 {
-	window.clear(sf::Color(16, 16, 16, 255)); // Dark gray.
+	window.clear(); // Dark gray.
 
 	draw();
-	
+
 	window.display();
 }
+
 
 
 
 int main()
 {
 	init();
-	
+
+	float min_y = 900 - 40;
 
 	window.setFramerateLimit(60);
 
-	sf::Clock clock;		// Clock for delta time ; to manage smooth moving + jump
+	sf::Clock clock;
 
-	
-	
+
+
 
 	while (window.isOpen())
 	{
-		updateInput();
 
-		
-		
-		/// COLLISION DETECTION IS NOT WORKING FIX THEM IN PLATFORM FILE.
+		// Collision with vector HAH
 
-		if (rect.Detect(duck.getX(), duck.getY()))
+
+		for (int i = 0; i < platforms.size(); i++)
 		{
-			min_y = rect.getY() - 40;
-		} 
-		else if (!rect.Detect(duck.getX(), duck.getY()))
-		{
-			min_y = 900 - 40;
+			if (goose.hitsHeadWith(platforms[i].getSprite())) {
+				goose.fallDown();
+				//break;
+			}
+
+			if (goose.jumps_on(platforms[i].getSprite())) {
+				goose.standOnPlatform(platforms[i].getSprite());
+				//break;
+			}
 		}
 
+		/*for (int i = 0; i < platforms.size(); i++)
+		{
+			if (goose.hitsHeadWith(platforms[i].getSprite())) {
+				goose.fallDown();
+			}
+		}*/
 
-		/// ONE IS WORKING SECOND WILL NOT WORK
-		/// FIX IT!
-		
+
+		updateInput();
+
+
+
 
 		sf::Time dt = clock.restart();
-
 		update(dt.asSeconds(), playerMoving, inverse, min_y);
-		
 
 		drawFull();
 
@@ -184,6 +219,3 @@ int main()
 
 	return 0;
 }
-
-/// I tried to fully optimize code and I did it 
-/// by deriving object into separate files main file is only compiling window.

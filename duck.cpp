@@ -131,3 +131,30 @@ void Hero::setPosition(float x, float y) { m_position.y = y; m_position.x = x; }
 
 void Hero::setPositionY(float y) { m_position.y = y; }
 void Hero::setPositionX(float x) { m_position.y = x; }
+
+bool Hero::jumps_on(sf::Sprite platform) {
+
+	if ((platform.getGlobalBounds().intersects(m_sprite.getGlobalBounds()))) {
+		return true;
+	}
+
+	return false;
+}
+
+void Hero::standOnPlatform(sf::Sprite platform) {
+	m_position.y = platform.getPosition().y - 40;
+	m_velocity = 0;
+	m_grounded = true;
+	jumpCount = 0;
+}
+
+bool Hero::hitsHeadWith(sf::Sprite platform) {
+	if ((m_position.x > platform.getPosition().x && m_position.x < platform.getPosition().x + 80)&&(m_position.y <= platform.getPosition().y + 40 + 32)) {
+		return true;
+	}
+
+	return false;
+};
+void Hero::fallDown() {
+	m_velocity = 0;
+};
