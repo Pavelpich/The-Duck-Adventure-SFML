@@ -20,6 +20,7 @@ private:
 
 	std::vector<Platform*> platforms;
 	std::vector<Spike*> spikes;
+	std::vector<Fire*> fires;
 
 	//private methods game
 	void UpdateInput();

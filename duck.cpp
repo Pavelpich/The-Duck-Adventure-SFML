@@ -189,17 +189,21 @@ int Hero::getHealth() {
 	return health_points;
 }
 
-void Hero::decreaseHealth() {
-	health_points--;
-};
+//void Hero::decreaseHealth() {
+//	health_points--;
+//};
 
-void Hero::die() {
-	health_points=0;
-};
+//void Hero::die() {
+//	health_points=0;
+//};
 
-void Hero::increaseHealth() {
+void Hero::takeDamage(int dmg) {
+	health_points +=dmg;
+}
+
+void Hero::increaseHealth(int health_points) {
 	if (health_points<=3)
-		health_points++;
+		health_points+=health_points;
 };
 
 bool Hero::isDead() {

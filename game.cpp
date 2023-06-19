@@ -6,7 +6,12 @@
 #include "game.h"
 
 void Game::InitGame() {
+	/// ADD BACKGROUND !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+	// goose is done 
+	// now you should make jumping on platform.
+
+	// Render window
 	sf::Vector2f viewSize(1600, 900);
 	sf::VideoMode vm(viewSize.x, viewSize.y);
 	window = new sf::RenderWindow(vm, "Jumping Duck", sf::Style::Default);
@@ -30,6 +35,9 @@ void Game::InitGame() {
 	
 	Spike* spike1 = new Spike();
 	Spike* spike2 = new Spike();
+
+	Fire* fire1 = new Fire();
+	Fire* fire2 = new Fire();
 
 	goose = new Hero();
 
@@ -57,8 +65,13 @@ void Game::InitGame() {
 	spike2->Init("Assets/spike.png", sf::Vector2f(1200, 900 - 50));
 
 	spikes.push_back(spike1);
-
 	spikes.push_back(spike2);
+
+	fire1->Init("Assets/fire.png", sf::Vector2f(900, 900 - 50));
+	fire2->Init("Assets/fire.png", sf::Vector2f(800, 900 - 50));
+
+	fires.push_back(fire1);
+	fires.push_back(fire2);
 };
 
 void Game::UpdateInput() {
@@ -132,6 +145,12 @@ void Game::draw(sf::RenderWindow& window) {
 		//spikes[i]->Draw(*window);	
 		window.draw(spikes[i]->getSprite());
 	}
+
+	for (int i = 0; i < fires.size(); i++)
+	{
+		//spikes[i]->Draw(*window);	
+		window.draw(fires[i]->getSprite());
+	}
 };
 
 void Game::drawFull() {
@@ -184,8 +203,15 @@ int Game::StartGame() {
 			if (goose->isCollidingWith(spikes[i]->getSprite())) {
 				//goose.decreaseHealth();
 				//playerMoving = true;
+				goose->takeDamage(spikes[0]->GetDamage());
 				inverse = true;
 				goose->jumpFromDamage();
+			}
+		}
+
+		for (int i = 0; i < fires.size(); i++) {
+			if (goose->isCollidingWith(fires[i]->getSprite())) {
+				goose->takeDamage(fires[0]->GetDamage());
 			}
 		}
 

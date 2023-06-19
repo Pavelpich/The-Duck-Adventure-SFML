@@ -63,8 +63,8 @@ public:
 
 	//all health methods for our duck
 	int getHealth();
-	void decreaseHealth();
-	void increaseHealth();
+	void increaseHealth(int health);
+	void takeDamage(int dmg);
 	void die();
 	bool isDead();
 };
