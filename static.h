@@ -21,4 +21,5 @@ public:
 	void Init(std::string textureName, sf::Vector2f position);
 	//sf::RectangleShape getShape();
 	sf::Sprite getSprite();
+	void Draw(sf::RenderWindow& window);
 };

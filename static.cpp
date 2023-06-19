@@ -21,3 +21,7 @@ sf::Sprite Static::getSprite()
 {
 	return m_sprite;
 }
+
+void Static::Draw(sf::RenderWindow &window) {
+	window.draw(m_sprite);
+};

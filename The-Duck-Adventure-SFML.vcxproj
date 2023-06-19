@@ -132,16 +132,30 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="duck.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="obstacles.cpp" />
     <ClCompile Include="platform.cpp" />
     <ClCompile Include="static.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="collectibles.h" />
     <ClInclude Include="duck.h" />
+    <ClInclude Include="game.h" />
     <ClInclude Include="obstacles.h" />
     <ClInclude Include="platform.h" />
     <ClInclude Include="static.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\anim.png" />
+    <Image Include="Assets\B1.png" />
+    <Image Include="Assets\duck.png" />
+    <Image Include="Assets\duck1.png" />
+    <Image Include="Assets\duck2.png" />
+    <Image Include="Assets\fanim.png" />
+    <Image Include="Assets\mush.png" />
+    <Image Include="Assets\Platform.png" />
+    <Image Include="Assets\spike.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

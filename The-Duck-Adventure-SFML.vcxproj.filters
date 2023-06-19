@@ -27,6 +27,12 @@
     <ClCompile Include="static.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="obstacles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="duck.h">
@@ -44,5 +50,37 @@
     <ClInclude Include="platform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\spike.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\anim.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\B1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\duck.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\duck1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\duck2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\fanim.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\mush.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Platform.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

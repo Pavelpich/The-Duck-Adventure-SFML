@@ -1,12 +1,29 @@
-﻿  main.cpp
-D:\Projects\The-Duck-Adventure-SFML\main.cpp(15,38): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+﻿  duck.cpp
+D:\Projects\The-Duck-Adventure-SFML\duck.cpp(34,56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\The-Duck-Adventure-SFML\duck.cpp(34,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Projects\The-Duck-Adventure-SFML\duck.cpp(76,22): warning C4305: '+=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\Projects\The-Duck-Adventure-SFML\main.cpp(15,26): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+D:\Projects\The-Duck-Adventure-SFML\duck.cpp(85,22): warning C4305: '-=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
+  game.cpp
+D:\Projects\The-Duck-Adventure-SFML\game.cpp(11,39): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Projects\The-Duck-Adventure-SFML\game.cpp(11,27): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\Projects\The-Duck-Adventure-SFML\game.cpp(20,8): warning C4101: 'currentTime': unreferenced local variable
+  main.cpp
+  Generating Code...
+D:\Projects\The-Duck-Adventure-SFML\game.cpp(204): warning C4715: 'Game::StartGame': not all control paths return a value
   The-Duck-Adventure-SFML.vcxproj -> D:\Projects\The-Duck-Adventure-SFML\x64\Debug\The-Duck-Adventure-SFML.exe

@@ -17,8 +17,9 @@ private:
 
 	int m_frameCount;
 	float m_animDuration;
-	float m_elapsedTime;;
+	float m_elapsedTime=0.0;
 	sf::Vector2i m_spriteSize;
+	int health_points;
 
 public:
 
@@ -35,6 +36,9 @@ public:
 	// jump
 	void jump(float velocity);
 
+	//move if get damage
+	void jumpFromDamage();
+
 	// Get Sprite 
 	sf::Sprite getSprite();
 
@@ -48,9 +52,19 @@ public:
 	void setPositionX(float x);
 	void setPositionY(float y);
 
+	//collision with objects
+	bool isCollidingWith(sf::Sprite obj);
+	
+	//collision with platform
 	bool jumps_on(sf::Sprite platform);
 	void standOnPlatform(sf::Sprite platform);
-
 	bool hitsHeadWith(sf::Sprite platform);
 	void fallDown();
+
+	//all health methods for our duck
+	int getHealth();
+	void decreaseHealth();
+	void increaseHealth();
+	void die();
+	bool isDead();
 };
