@@ -33,6 +33,9 @@
     <ClCompile Include="game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="collectibles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="duck.h">
@@ -80,6 +83,24 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Assets\Platform.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\carrot.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\fire.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\heart.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\key.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\strawberry.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\door.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

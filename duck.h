@@ -14,6 +14,7 @@ private:
 	float m_velocity;
 	const float m_gravity = 9.80f;
 	bool m_grounded;
+	sf::Vector2f original_pos;
 
 	int m_frameCount;
 	float m_animDuration;
@@ -65,6 +66,10 @@ public:
 	int getHealth();
 	void increaseHealth(int health);
 	void takeDamage(int dmg);
-	void die();
 	bool isDead();
+
+
+	void pickUpKey();
+
+	void restart();
 };

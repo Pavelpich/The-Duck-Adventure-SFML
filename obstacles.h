@@ -12,9 +12,9 @@ public:
 
 	 int GetDamage();
 };
-class Fire : public Obstacles {
-public:
-	void Init(std::string textureName, sf::Vector2f position);
-
-	 int GetDamage();
-};
+//class Fire : public Obstacles {
+//public:
+//	void Init(std::string textureName, sf::Vector2f position);
+//
+//	 int GetDamage();
+//};

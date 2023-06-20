@@ -131,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="collectibles.cpp" />
     <ClCompile Include="duck.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
@@ -149,13 +150,19 @@
   <ItemGroup>
     <Image Include="Assets\anim.png" />
     <Image Include="Assets\B1.png" />
+    <Image Include="Assets\carrot.png" />
+    <Image Include="Assets\door.png" />
     <Image Include="Assets\duck.png" />
     <Image Include="Assets\duck1.png" />
     <Image Include="Assets\duck2.png" />
     <Image Include="Assets\fanim.png" />
+    <Image Include="Assets\fire.png" />
+    <Image Include="Assets\heart.png" />
+    <Image Include="Assets\key.png" />
     <Image Include="Assets\mush.png" />
     <Image Include="Assets\Platform.png" />
     <Image Include="Assets\spike.png" />
+    <Image Include="Assets\strawberry.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

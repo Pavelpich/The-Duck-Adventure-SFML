@@ -13,14 +13,13 @@ Platform::Platform():Static() {};
 Platform::~Platform() {};
 
 
-void Platform::Init(std::string textureName, sf::Vector2f position, sf::Vector2f size)
+void Platform::Init(std::string textureName, sf::Vector2f position)
 {
 	Static::Init(textureName, position);
 
 
 	// Platform size , position , centre;
 	//rectangle.setSize(m_size);
-	m_size = size;
 	
 }
 

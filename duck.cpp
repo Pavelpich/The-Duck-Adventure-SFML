@@ -19,7 +19,7 @@ void Hero::init(std::string textureName, int frameCount, float
 
 	m_animDuration = animDuration;
 
-	
+	original_pos = m_position;
 
 	// Load a Texture
 	m_texture.loadFromFile(textureName.c_str());
@@ -201,9 +201,9 @@ void Hero::takeDamage(int dmg) {
 	health_points +=dmg;
 }
 
-void Hero::increaseHealth(int health_points) {
-	if (health_points<=3)
-		health_points+=health_points;
+void Hero::increaseHealth(int hp) {
+	if (health_points<3)
+		health_points+= hp;
 };
 
 bool Hero::isDead() {
@@ -211,3 +211,5 @@ bool Hero::isDead() {
 
 	return false;
 };
+
+void Hero::restart() { m_position = original_pos; }
