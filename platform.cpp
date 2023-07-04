@@ -23,6 +23,18 @@ void Platform::Init(std::string textureName, sf::Vector2f position)
 	
 }
 
+Floor::Floor() :Platform() {};
+Floor::~Floor() {};
+
+void Floor::Init(std::string textureName, sf::Vector2f position, int hei)
+{
+	Platform::Init(textureName, position);
+	height = hei;
+}
+
+int Floor::getHeight() {
+	return height;
+}
 //float Platform::getY() { return m_position.y; }
 //
 //float Platform::getX() { return m_position.x; }

@@ -1,10 +1,10 @@
 #include <SFML/Graphics.hpp>
 #include "duck.h"
+#include "platform.h"
+#include "exception.h"
 
 
 Hero::Hero() {}
-
-
 Hero::~Hero() {}
 
 void Hero::init(std::string textureName, int frameCount, float
@@ -22,7 +22,9 @@ void Hero::init(std::string textureName, int frameCount, float
 	original_pos = m_position;
 
 	// Load a Texture
-	m_texture.loadFromFile(textureName.c_str());
+	if (!m_texture.loadFromFile(textureName.c_str())) {
+		throw new Exception("Image for duck was not loaded! Check the file!");
+	};
 
 
 	// Sprite size
@@ -50,7 +52,7 @@ void Hero::init(std::string textureName, int frameCount, float
 
 
 
-void Hero::update(float dt, bool playermoving, bool inverse, float min_y) {
+void Hero::update(float dt, bool playermoving, bool inverse, float min_y, bool is_key_collected) {
 
 	// Animate Sprite
 	
@@ -98,11 +100,14 @@ void Hero::update(float dt, bool playermoving, bool inverse, float min_y) {
 
 
 	// -40 to make equal as texture
-	if (m_position.x >= 1500-40)
+	if (m_position.x >= 1500-40 && !is_key_collected)
 	{
 		m_position.x = 1500-40;
 	}
-	else if (m_position.x <= 40)
+	if (m_position.y>=20 && m_position.x >= 1550 && is_key_collected) {
+		m_position.x = 1550;
+	}
+	if (m_position.x <= 40)
 	{
 		m_position.x = 40;
 	}
@@ -120,9 +125,9 @@ void Hero::jump(float velocity) {
 
 }
 
-void Hero::jumpFromDamage() {
-	Hero::jump(700.0f);
-}
+//void Hero::jumpFromDamage() {
+//	Hero::jump(700.0f);
+//}
 
 sf::Sprite Hero::getSprite()
 {
@@ -141,7 +146,7 @@ void Hero::setPositionX(float x) { m_position.y = x; }
 
 bool Hero::jumps_on(sf::Sprite platform) {
 
-	if ((platform.getGlobalBounds().intersects(m_sprite.getGlobalBounds()))) {
+	if ((m_position.x > platform.getPosition().x && m_position.x < platform.getPosition().x + 80) && (m_position.y + 40 >= platform.getPosition().y && m_position.y <= platform.getPosition().y + 16)) {
 		return true;
 	}
 
@@ -149,7 +154,8 @@ bool Hero::jumps_on(sf::Sprite platform) {
 }
 
 bool Hero::isCollidingWith(sf::Sprite obj) {
-	if ((obj.getGlobalBounds().intersects(m_sprite.getGlobalBounds()))) {
+	if ((m_position.x > obj.getPosition().x && m_position.x < obj.getPosition().x + 30) && (m_position.y + 40 >= obj.getPosition().y && m_position.y <= obj.getPosition().y + 16)) {
+		//return false;
 		return true;
 	}
 
@@ -196,6 +202,29 @@ int Hero::getHealth() {
 //void Hero::die() {
 //	health_points=0;
 //};
+
+//bool Hero::stands_on_first_floor(sf::Sprite floor) {
+//	
+//}
+//bool Hero::stands_on_second_floor(sf::Sprite floor) {}
+//bool Hero::stands_on_third_floor(sf::Sprite floor) {}
+
+bool Hero::stands_on_Floor(Floor * floor) {
+	if ((m_position.x > floor->getSprite().getPosition().x && m_position.x < (floor->getSprite().getPosition().x) + (floor->getHeight())) && (m_position.y + 40 >= floor->getSprite().getPosition().y && m_position.y <= floor->getSprite().getPosition().y + 16))
+		return true;
+	else return false;
+}
+
+void Hero::standOnFloor(sf::Sprite floor){
+	m_position.y = floor.getPosition().y - 40;
+	m_velocity = 0;
+	m_grounded = true;
+	jumpCount = 0;
+}
+
+//void standOnFirstFloor(sf::Sprite floor) {};
+//void standOnSecondFloor(sf::Sprite floor) {};
+//void standOnThirdFloor(sf::Sprite floor) {};
 
 void Hero::takeDamage(int dmg) {
 	health_points +=dmg;

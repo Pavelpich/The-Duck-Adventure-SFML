@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "platform.h"
 
 // Header File is Required to easily manage functions use them
 
@@ -32,7 +33,7 @@ public:
 	void init(std::string textureName,int frameCount, float animDuration, sf::Vector2f position, float mass);
 
 	// update position
-	void update(float dt, bool playermoving, bool inverse, float min_y);
+	void update(float dt, bool playermoving, bool inverse, float min_y, bool is_key_collected);
 
 	// jump
 	void jump(float velocity);
@@ -68,6 +69,9 @@ public:
 	void takeDamage(int dmg);
 	bool isDead();
 
+	bool stands_on_Floor(Floor * floor);
+
+	void standOnFloor(sf::Sprite floor);
 
 	void pickUpKey();
 

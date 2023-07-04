@@ -18,5 +18,13 @@ public:
 
 	bool Detect(float x, float y);
 };
-class Floor : public Platform {};
+class Floor : public Platform {
+private:
+	int height;
+public:
+	Floor();
+	~Floor();
+	void Init(std::string textureName, sf::Vector2f position, int height);
+	int getHeight();
+};
 class Wall : public Platform {};

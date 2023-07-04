@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClCompile Include="collectibles.cpp" />
     <ClCompile Include="duck.cpp" />
+    <ClCompile Include="exception.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="obstacles.cpp" />
@@ -142,6 +143,7 @@
   <ItemGroup>
     <ClInclude Include="collectibles.h" />
     <ClInclude Include="duck.h" />
+    <ClInclude Include="exception.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="obstacles.h" />
     <ClInclude Include="platform.h" />
