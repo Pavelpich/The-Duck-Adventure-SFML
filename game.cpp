@@ -296,7 +296,7 @@ void Game::UpdateInput() {
 	}
 };
 
-
+//MAIN DRAW ALL OBJ METHOD
 void Game::draw(sf::RenderWindow& window) {
 	window.draw(background->getSprite()); //draw background
 
@@ -310,7 +310,7 @@ void Game::draw(sf::RenderWindow& window) {
 
 	window.draw(First_Wall->getSprite()); //draw walls
 
-	window.draw(Second_Wall->getSprite()); //draw walls
+	if (!key_collected) window.draw(Second_Wall->getSprite()); //draw walls
 
 	window.draw(Third_Wall->getSprite()); //draw walls
 
@@ -358,7 +358,7 @@ void Game::drawFull() {
  //Update Duck position (move and jump)
 void Game::update(float dt, bool playerMoving, bool inverse, float min_y, bool is_key_collected) { goose->update(dt, playerMoving, inverse, min_y, is_key_collected); }
 
-int Game::StartGame() { //main loop
+int Game::StartGame() { // MAIN LOGIC SECTION
 
 	InitGame(); //init all objects
 
@@ -368,7 +368,7 @@ int Game::StartGame() { //main loop
 
 	sf::Clock clock; //create 
 
-	while (window->isOpen())
+	while (window->isOpen())  //main loop
 	{
 		// Collision with vector HAH
 		if (goose->isDead()) {
@@ -381,67 +381,48 @@ int Game::StartGame() { //main loop
 
 		for (int i = 0; i < platforms.size(); i++)
 		{
-			if (goose->jumps_on(platforms[i]->getSprite())) {
-				goose->standOnPlatform(platforms[i]->getSprite());
-				//break;
+			if (goose->jumps_on(platforms[i]->getSprite())) { //if duck jumps on platfrom 
+				goose->standOnPlatform(platforms[i]->getSprite()); //stand on platform
 			}
 		}
 
 		for (int i = 0; i < floors.size(); i++)
 		{
-			if (goose->stands_on_Floor(floors[i]))
-				goose->standOnFloor(floors[i]->getSprite());
+			if (goose->stands_on_Floor(floors[i])) //if duck stands on floor
+				goose->standOnFloor(floors[i]->getSprite()); //stand on floor
 		}
-		/*if (goose->stands_on_second_floor(Second_Floor->getSprite()))
-			goose->standOnSecondFloor(Second_Floor->getSprite());
-
-		if (goose->stands_on_third_floor(Third_Floor->getSprite()))
-			goose->standOnThirdFloor(Third_Floor->getSprite());*/
 
 		for (int i = 0; i < spikes.size(); i++)
 		{
-			if (goose->isCollidingWith(spikes[i]->getSprite())) {
-				//goose.decreaseHealth();
-				//playerMoving = true;
-				goose->takeDamage(spikes[i]->GetDamage());
-				goose->restart();
+			if (goose->isCollidingWith(spikes[i]->getSprite())) { //if duck is colliding with spike 
+				goose->takeDamage(spikes[i]->GetDamage()); //-1 heart
+				goose->restart(); //place goose to starting position
 			}
 		}
-
-		/*for (int i = 0; i < fires.size(); i++) {
-			if (goose->isCollidingWith(fires[i]->getSprite())) {
-				goose->takeDamage(fires[i]->GetDamage());
-				goose->restart();
-			}
-		}*/
 		
 		for (int i = 0; i < strawberries.size(); i++) {
-			if (strawberries[i]->isNotPickedUp() && goose->isCollidingWith(strawberries[i]->getSprite())) {
-				goose->takeDamage(strawberries[i]->onCollect());
-				goose->restart();
+			if (strawberries[i]->isNotPickedUp() && goose->isCollidingWith(strawberries[i]->getSprite())) { //if strawberry wasnt picked up before and duck is picking it up
+				goose->takeDamage(strawberries[i]->onCollect()); // die instantly 
 			}
 		}
 
 		for (int i = 0; i < carrots.size(); i++) {
-			if (carrots[i]->isNotPickedUp() && goose->isCollidingWith(carrots[i]->getSprite())) {
-				goose->increaseHealth(carrots[i]->onCollect());
+			if (carrots[i]->isNotPickedUp() && goose->isCollidingWith(carrots[i]->getSprite())) { //if carrot wasnt picked up before and goose is colliding with it, then 
+				goose->increaseHealth(carrots[i]->onCollect());// get health
 			};
 		};
 
-		if (key->isNotPickedUp() && goose->isCollidingWith(key->getSprite())) {
-			key_collected = true;
+		if (key->isNotPickedUp() && goose->isCollidingWith(key->getSprite())) { //if key wasnt picked up before and goose is colliding with it, then
+			key_collected = true; //key is collected and you can open door
 			key->onCollect();
 		};
 
-		UpdateInput();
+		UpdateInput(); //update controls for duck
 
+		sf::Time dt = clock.restart(); //restart time
 
+		goose->update(dt.asSeconds(), playerMoving, inverse, min_y, key_collected); //update duck position and other data
 
-
-		sf::Time dt = clock.restart();
-		//update(dt.asSeconds(), playerMoving, inverse, min_y);
-		goose->update(dt.asSeconds(), playerMoving, inverse, min_y, key_collected);
-
-		drawFull();
+		drawFull(); //draw all objects
 	};
 }

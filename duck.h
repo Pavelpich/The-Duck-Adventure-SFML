@@ -7,21 +7,21 @@
 class Hero {
 private:
 
-	int jumpCount = 0;
-	sf::Texture m_texture;
-	sf::Sprite m_sprite;
-	sf::Vector2f m_position;
-	float m_mass;
-	float m_velocity;
-	const float m_gravity = 9.80f;
-	bool m_grounded;
-	sf::Vector2f original_pos;
+	int jumpCount = 0; //jump count for duck
+	sf::Texture m_texture; //duck texture
+	sf::Sprite m_sprite; //sprite of duck
+	sf::Vector2f m_position; //vector position for duck
+	float m_mass; //mass of duck for jumping
+	float m_velocity; //velocity for jumping
+	const float m_gravity = 9.80f; // g constant for jump
+	bool m_grounded; // true if is on solid ground
+	sf::Vector2f original_pos; //position of start
 
-	int m_frameCount;
-	float m_animDuration;
-	float m_elapsedTime=0.0;
-	sf::Vector2i m_spriteSize;
-	int health_points;
+	int m_frameCount; //fps counter for animation
+	float m_animDuration; //duration for animation
+	float m_elapsedTime=0.0;//time passed
+	sf::Vector2i m_spriteSize; //prite size
+	int health_points; //hearts
 
 public:
 
@@ -68,12 +68,13 @@ public:
 	void increaseHealth(int health);
 	void takeDamage(int dmg);
 	bool isDead();
-
+	
+	// true if standing on floor
 	bool stands_on_Floor(Floor * floor);
-
+	
+	// stay on floor
 	void standOnFloor(sf::Sprite floor);
 
-	void pickUpKey();
-
+	//move to starting position
 	void restart();
 };

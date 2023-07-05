@@ -8,7 +8,7 @@ Hero::Hero() {}
 Hero::~Hero() {}
 
 void Hero::init(std::string textureName, int frameCount, float
-	animDuration, sf::Vector2f position, float mass) {
+	animDuration, sf::Vector2f position, float mass) { //init for our duck
 
 	m_position = position;
 	m_mass = mass;
@@ -21,7 +21,7 @@ void Hero::init(std::string textureName, int frameCount, float
 
 	original_pos = m_position;
 
-	// Load a Texture
+	// Load a Texture if false throw exception
 	if (!m_texture.loadFromFile(textureName.c_str())) {
 		throw new Exception("Image for duck was not loaded! Check the file!");
 	};
@@ -42,7 +42,6 @@ void Hero::init(std::string textureName, int frameCount, float
 	health_points = 3;
 }
 
-
 ///  I have idea to create separate SpreadSheets to animate goosy
 ///  but maybe it is better to have everything in one?
 ///  but How?
@@ -50,8 +49,7 @@ void Hero::init(std::string textureName, int frameCount, float
 /// breath animation -> while static
 /// walk animation if moving.
 
-
-
+//UPDATE GOOSE HIS COORD, ANIMATION FRAME, IF INVERSE ETC.
 void Hero::update(float dt, bool playermoving, bool inverse, float min_y, bool is_key_collected) {
 
 	// Animate Sprite
@@ -64,7 +62,7 @@ void Hero::update(float dt, bool playermoving, bool inverse, float min_y, bool i
 
 	m_sprite.setPosition(m_position);
 
-
+	//minimal postition for duck eg grass floor
 	if (m_position.y >= min_y) {
 
 		m_position.y = min_y;
@@ -72,7 +70,7 @@ void Hero::update(float dt, bool playermoving, bool inverse, float min_y, bool i
 		m_grounded = true;
 		jumpCount = 0;
 	}
-
+	//ANIMATION FRAME by FRAME
 	if (playermoving && !inverse) 
 	{
 		m_position.x += 2.8;
@@ -98,12 +96,12 @@ void Hero::update(float dt, bool playermoving, bool inverse, float min_y, bool i
 
 	}
 
-
+	//WALLS COLLISION
 	// -40 to make equal as texture
 	if (m_position.x >= 1550 && !is_key_collected)
 	{
 		m_position.x = 1550;
-	}
+	}//if key is picked up inv wall disapeares
 	if (m_position.y>=20 && m_position.x >= 1550 && is_key_collected) {
 		m_position.x = 1550;
 	}
@@ -113,7 +111,7 @@ void Hero::update(float dt, bool playermoving, bool inverse, float min_y, bool i
 	}
 
 }
-
+//JUMP FOR DUCK, DOUBLE JUMP ALLOWED
 void Hero::jump(float velocity) {
 
 	if (jumpCount < 3) {
@@ -125,16 +123,12 @@ void Hero::jump(float velocity) {
 
 }
 
-//void Hero::jumpFromDamage() {
-//	Hero::jump(700.0f);
-//}
-
-sf::Sprite Hero::getSprite()
+sf::Sprite Hero::getSprite() //getter for private sprite
 {
 	return m_sprite;
 }
 
-float Hero::getX() { return m_position.x; }
+float Hero::getX() { return m_position.x; } //getters for position
 float Hero::getY() { return m_position.y; }
 
 sf::Vector2f Hero::getPosition() { return m_position; }
@@ -144,6 +138,7 @@ void Hero::setPosition(float x, float y) { m_position.y = y; m_position.x = x; }
 void Hero::setPositionY(float y) { m_position.y = y; }
 void Hero::setPositionX(float x) { m_position.y = x; }
 
+//check if goose jumped on platform
 bool Hero::jumps_on(sf::Sprite platform) {
 
 	if ((m_position.x > platform.getPosition().x && m_position.x < platform.getPosition().x + 80) && (m_position.y + 40 >= platform.getPosition().y && m_position.y <= platform.getPosition().y + 16)) {
@@ -153,15 +148,16 @@ bool Hero::jumps_on(sf::Sprite platform) {
 	return false;
 }
 
+//If is colliding with object passed sprite
 bool Hero::isCollidingWith(sf::Sprite obj) {
 	if ((m_position.x > obj.getPosition().x && m_position.x < obj.getPosition().x + 30) && (m_position.y + 40 >= obj.getPosition().y && m_position.y <= obj.getPosition().y + 16)) {
-		//return false;
 		return true;
 	}
 
 	return false;
 };
 
+//stay on platform that returned true
 void Hero::standOnPlatform(sf::Sprite platform) {
 	m_position.y = platform.getPosition().y - 40;
 	m_velocity = 0;
@@ -178,36 +174,13 @@ void Hero::standOnPlatform(sf::Sprite platform) {
 //};
 
 
-bool Hero::hitsHeadWith(sf::Sprite platform) {
-	if ((m_position.x > platform.getPosition().x && m_position.x < platform.getPosition().x + 80)&&(m_position.y >= platform.getPosition().y - 40 && m_position.y <= platform.getPosition().y + 40 + 32)) {
-		return true;
-	}
-
-	return false;
-};
-
-
-void Hero::fallDown() {
-	m_velocity = 0;
-};
+//void Hero::fallDown() {
+//	m_velocity = 0;
+//};
 
 int Hero::getHealth() {
-	return health_points;
+	return health_points; //getter for health
 }
-
-//void Hero::decreaseHealth() {
-//	health_points--;
-//};
-
-//void Hero::die() {
-//	health_points=0;
-//};
-
-//bool Hero::stands_on_first_floor(sf::Sprite floor) {
-//	
-//}
-//bool Hero::stands_on_second_floor(sf::Sprite floor) {}
-//bool Hero::stands_on_third_floor(sf::Sprite floor) {}
 
 bool Hero::stands_on_Floor(Floor * floor) {
 	if ((m_position.x > floor->getSprite().getPosition().x && m_position.x < (floor->getSprite().getPosition().x) + (floor->getHeight())) && (m_position.y + 40 >= floor->getSprite().getPosition().y && m_position.y <= floor->getSprite().getPosition().y + 16))
@@ -222,23 +195,20 @@ void Hero::standOnFloor(sf::Sprite floor){
 	jumpCount = 0;
 }
 
-//void standOnFirstFloor(sf::Sprite floor) {};
-//void standOnSecondFloor(sf::Sprite floor) {};
-//void standOnThirdFloor(sf::Sprite floor) {};
-
-void Hero::takeDamage(int dmg) {
+void Hero::takeDamage(int dmg) { // take dmg given
 	health_points +=dmg;
 }
 
-void Hero::increaseHealth(int hp) {
+void Hero::increaseHealth(int hp) { //increase health by points given
 	if (health_points<3)
 		health_points+= hp;
 };
 
-bool Hero::isDead() {
+bool Hero::isDead() { // return true if duck is dead
 	if (health_points <= 0) return true;
 
 	return false;
 };
 
+//return to original pos
 void Hero::restart() { m_position = original_pos; }

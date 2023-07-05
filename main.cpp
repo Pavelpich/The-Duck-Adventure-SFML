@@ -1,6 +1,16 @@
 /*
-
-
+	modelling and data abstraction:
+		all classes inherit from Static class, except Hero,
+		Game class members of vectors with pointers and etc is composition example,
+		classes like Carrot is hierhically inherited from Static class this is example of hierarchy,
+		most classes have private and public methods
+	polymorphism and virtual functions:
+		virtual method onCollect for abs Collectable class
+		virtual method GetDamage() for abs class Obstacles
+	STL containers:
+		vector of pointers: eg spikes, floors, platforms
+	exception handling:
+		Exception class instance with message of which is catched in main cpp by catch(Exception *ex)
 */
 #include <SFML/Graphics.hpp>
 #include <vector>

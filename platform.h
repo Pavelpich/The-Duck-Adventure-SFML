@@ -20,11 +20,12 @@ public:
 };
 class Floor : public Platform {
 private:
-	int height;
+	int height; // private mem height for collision
 public:
-	Floor();
+	Floor(); //def constructor
 	~Floor();
+	//Init for floor, accepts height as one more param
 	void Init(std::string textureName, sf::Vector2f position, int height);
-	int getHeight();
+	int getHeight();//getter for height
 };
 class Wall : public Platform {};

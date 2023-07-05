@@ -4,6 +4,7 @@ Static:: Static() {}
 
 Static::~Static() {}
 
+//INIT FOR STATIC CLS, THE FATHER OF ALL
 void Static::Init(std::string textureName, sf::Vector2f position) {
 
 	m_position = position;
@@ -17,11 +18,8 @@ void Static::Init(std::string textureName, sf::Vector2f position) {
 	m_sprite.setPosition(m_position);
 }
 
+//GETTER FOR SPRITE
 sf::Sprite Static::getSprite()
 {
 	return m_sprite;
 }
-
-void Static::Draw(sf::RenderWindow &window) {
-	window.draw(m_sprite);
-};

@@ -1,11 +1,11 @@
 #include "collectibles.h"
 
 //Collectibles section init and funcs
-void Collectibles::Init(std::string textureName, sf::Vector2f position) {
+void Collectibles::Init(std::string textureName, sf::Vector2f position) {//init for collectable obj
 	Static::Init(textureName, position);
 };
 
-bool Collectibles::isNotPickedUp() {
+bool Collectibles::isNotPickedUp() { //true if object was not previously picked up
 	return !picked_up;
 };
 
@@ -16,7 +16,7 @@ void Carrot::Init(std::string textureName, sf::Vector2f position) {
 	Collectibles::Init(textureName, position);
 };
 
-int Carrot::onCollect() {
+int Carrot::onCollect() { ////redefined virt oncollect func
 	picked_up = true;
 	return 1;
 }
@@ -27,7 +27,7 @@ void Strawberry::Init(std::string textureName, sf::Vector2f position) {
 	Collectibles::Init(textureName, position);
 };
 
-int Strawberry::onCollect() {
+int Strawberry::onCollect() {//redefined virt oncollect func
 	picked_up = true;
 	return -3;
 }
@@ -38,7 +38,7 @@ void Key::Init(std::string textureName, sf::Vector2f position) {
 	Collectibles::Init(textureName, position);
 };
 
-int Key::onCollect() {
+int Key::onCollect() {//redefined virt oncollect func
 	picked_up = true;
 	return 1;
 }
