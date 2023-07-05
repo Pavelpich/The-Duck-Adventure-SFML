@@ -286,7 +286,7 @@ void Game::UpdateInput() {
 
 		if (event.key.code == sf::Keyboard::Up)
 		{
-			goose->jump(700.0f);
+			goose->jump(450.0f); // Jump Velocity
 		}
 
 		if (event.key.code == sf::Keyboard::Escape || event.type == sf::Event::Closed) // press up

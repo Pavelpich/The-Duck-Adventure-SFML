@@ -1,30 +1,17 @@
-﻿  duck.cpp
-D:\Projects\The-Duck-Adventure-SFML\duck.cpp(36,56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Projects\The-Duck-Adventure-SFML\duck.cpp(36,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Projects\The-Duck-Adventure-SFML\duck.cpp(78,22): warning C4305: '+=': truncation from 'double' to 'T'
-          with
-          [
-              T=float
-          ]
-D:\Projects\The-Duck-Adventure-SFML\duck.cpp(87,22): warning C4305: '-=': truncation from 'double' to 'T'
-          with
-          [
-              T=float
-          ]
+﻿  collectibles.cpp
+C:\Users\David\source\repos\Goose-game\static.h(2,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  duck.cpp
+C:\Users\David\source\repos\Goose-game\duck.cpp(1,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
   exception.cpp
+C:\Users\David\source\repos\Goose-game\exception.h(2,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
   game.cpp
-D:\Projects\The-Duck-Adventure-SFML\game.cpp(12,39): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\Projects\The-Duck-Adventure-SFML\game.cpp(12,27): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
-          with
-          [
-              T=float
-          ]
-D:\Projects\The-Duck-Adventure-SFML\game.cpp(21,8): warning C4101: 'currentTime': unreferenced local variable
+C:\Users\David\source\repos\Goose-game\game.cpp(1,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
   main.cpp
+C:\Users\David\source\repos\Goose-game\main.cpp(5,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  obstacles.cpp
+C:\Users\David\source\repos\Goose-game\obstacles.cpp(1,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  platform.cpp
+C:\Users\David\source\repos\Goose-game\platform.cpp(1,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  static.cpp
+C:\Users\David\source\repos\Goose-game\static.h(2,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
   Generating Code...
-D:\Projects\The-Duck-Adventure-SFML\game.cpp(427): warning C4715: 'Game::StartGame': not all control paths return a value
-  The-Duck-Adventure-SFML.vcxproj -> D:\Projects\The-Duck-Adventure-SFML\x64\Debug\The-Duck-Adventure-SFML.exe
