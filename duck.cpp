@@ -100,9 +100,9 @@ void Hero::update(float dt, bool playermoving, bool inverse, float min_y, bool i
 
 
 	// -40 to make equal as texture
-	if (m_position.x >= 1500-40 && !is_key_collected)
+	if (m_position.x >= 1550 && !is_key_collected)
 	{
-		m_position.x = 1500-40;
+		m_position.x = 1550;
 	}
 	if (m_position.y>=20 && m_position.x >= 1550 && is_key_collected) {
 		m_position.x = 1550;

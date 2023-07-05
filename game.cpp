@@ -358,7 +358,7 @@ void Game::drawFull() {
  //Update Duck position (move and jump)
 void Game::update(float dt, bool playerMoving, bool inverse, float min_y, bool is_key_collected) { goose->update(dt, playerMoving, inverse, min_y, is_key_collected); }
 
-int Game::StartGame() {
+int Game::StartGame() { //main loop
 
 	InitGame(); //init all objects
 
@@ -366,7 +366,7 @@ int Game::StartGame() {
 
 	window->setFramerateLimit(60); //framerate for screen
 
-	sf::Clock clock;
+	sf::Clock clock; //create 
 
 	while (window->isOpen())
 	{
