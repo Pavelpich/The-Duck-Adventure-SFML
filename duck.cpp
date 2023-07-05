@@ -116,7 +116,7 @@ void Hero::update(float dt, bool playermoving, bool inverse, float min_y, bool i
 
 void Hero::jump(float velocity) {
 
-	if (jumpCount < 2) {
+	if (jumpCount < 3) {
 		jumpCount++;
 
 		m_velocity = velocity;

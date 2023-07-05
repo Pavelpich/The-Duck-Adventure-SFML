@@ -1,14 +1,34 @@
-﻿  game.cpp
-D:\Projects\The-Duck-Adventure-SFML\game.cpp(12,39): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+﻿  collectibles.cpp
+  duck.cpp
+C:\Users\David\source\repos\The-Duck-Adventure-SFML\duck.cpp(36,56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\David\source\repos\The-Duck-Adventure-SFML\duck.cpp(36,36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\David\source\repos\The-Duck-Adventure-SFML\duck.cpp(78,22): warning C4305: '+=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\Projects\The-Duck-Adventure-SFML\game.cpp(12,27): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+C:\Users\David\source\repos\The-Duck-Adventure-SFML\duck.cpp(87,22): warning C4305: '-=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\Projects\The-Duck-Adventure-SFML\game.cpp(21,8): warning C4101: 'currentTime': unreferenced local variable
-D:\Projects\The-Duck-Adventure-SFML\game.cpp(447): warning C4715: 'Game::StartGame': not all control paths return a value
-  The-Duck-Adventure-SFML.vcxproj -> D:\Projects\The-Duck-Adventure-SFML\x64\Debug\The-Duck-Adventure-SFML.exe
+  exception.cpp
+  game.cpp
+C:\Users\David\source\repos\The-Duck-Adventure-SFML\game.cpp(12,39): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\David\source\repos\The-Duck-Adventure-SFML\game.cpp(12,27): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\David\source\repos\The-Duck-Adventure-SFML\game.cpp(21,8): warning C4101: 'currentTime': unreferenced local variable
+  main.cpp
+  obstacles.cpp
+  platform.cpp
+  static.cpp
+  Generating Code...
+C:\Users\David\source\repos\The-Duck-Adventure-SFML\game.cpp(447): warning C4715: 'Game::StartGame': not all control paths return a value
+  The-Duck-Adventure-SFML.vcxproj -> C:\Users\David\Source\Repos\The-Duck-Adventure-SFML\x64\Debug\The-Duck-Adventure-SFML.exe
