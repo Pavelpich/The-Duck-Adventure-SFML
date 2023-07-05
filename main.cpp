@@ -12,6 +12,13 @@
 	exception handling:
 		Exception class instance with message of which is catched in main cpp by catch(Exception *ex)
 */
+/*
+	Control flow is:
+		create Game obj, init all its members -> set textures for all objects -> !!if texture is not loaded for duck -> throw error!!-> get pressed key -> move duck ->
+		-> if duck collides with obstacle -> get damage || ->if duck takes carrot -> get health point||->
+		-> if duck jumped on platform -> stand on platform -> if duck dies -> throw exception -> if duck picked up key && is on exit -> endgame.
+		
+*/
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "duck.h"
